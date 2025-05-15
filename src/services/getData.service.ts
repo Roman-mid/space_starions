@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { DataType, getDateParams } from './types';
 
-const url = import.meta.env.VITE_DATA_URL as string;
+const url = '/api/proxy';
+// const url = import.meta.env.VITE_DATA_URL as string;
 
 export const dataApi = createApi({
   reducerPath: 'dataApi',
@@ -11,7 +12,7 @@ export const dataApi = createApi({
   endpoints: (builder) => ({
     getData: builder.mutation<DataType[], getDateParams>({
       query: ({ token, station, artifact, historic }: getDateParams) => ({
-        url: `${url}?station=${station}&artifact=${artifact}&historic=${historic}`,
+        url: `?station=${station}&artifact=${artifact}&historic=${historic}`,
         method: 'GET',
         headers: { jfwt: token },
       }),
