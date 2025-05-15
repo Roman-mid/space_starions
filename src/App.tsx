@@ -17,8 +17,6 @@ function App() {
     setQueryParams,
   } = useDataSettingPanel();
 
-  console.log('url', import.meta.env.VITE_DATA_URL);
-
   return (
     <>
       <h1>
