@@ -10,6 +10,9 @@ export default async function handler(req, res) {
 
   const { token, station = '', artifact = '', historic = 'false' } = req.query;
 
+  console.log('Received query:', req.query);
+  console.log('Token:', token);
+
   if (typeof token !== 'string') {
     return res.status(400).json({ error: 'Missing or invalid token' });
   }
@@ -21,10 +24,14 @@ export default async function handler(req, res) {
       headers: { jfwt: token },
     });
 
+    const text = await response.text();
+    console.log('External API response:', text);
+
     const data = await response.json();
     res.status(response.status).json(data);
     // eslint-disable-next-line
   } catch (err: any) {
+    console.error('Proxy error:', err);
     res
       .status(500)
       .json({ error: 'Internal Server Error', message: err.message });
