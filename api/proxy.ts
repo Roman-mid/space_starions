@@ -8,12 +8,9 @@ export default async function handler(req, res) {
     return;
   }
 
-  const {
-    token = '',
-    station = '',
-    artifact = '',
-    historic = 'false',
-  } = req.query;
+  const { station = '', artifact = '', historic = 'false' } = req.query;
+
+  const token = req.headers.jfwt;
 
   console.log('Received query:', req.query);
   console.log('Token:', token);

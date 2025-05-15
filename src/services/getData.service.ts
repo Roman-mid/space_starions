@@ -12,7 +12,7 @@ export const dataApi = createApi({
   endpoints: (builder) => ({
     getData: builder.mutation<DataType[], getDateParams>({
       query: ({ token, station, artifact, historic }: getDateParams) => ({
-        url: `?station=${station}&artifact=${artifact}&historic=${historic}&token=${token}`,
+        url: `?station=${station}&artifact=${artifact}&historic=${historic}`,
         method: 'GET',
         headers: { jfwt: token },
       }),
