@@ -8,12 +8,17 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { token, station = '', artifact = '', historic = 'false' } = req.query;
+  const {
+    token = '',
+    station = '',
+    artifact = '',
+    historic = 'false',
+  } = req.query;
 
   console.log('Received query:', req.query);
   console.log('Token:', token);
 
-  if (typeof token !== 'string') {
+  if (!token) {
     return res.status(400).json({ error: 'Missing or invalid token' });
   }
 
