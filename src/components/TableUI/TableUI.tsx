@@ -5,7 +5,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import type { DataType } from '../../App';
+import type { DataType } from '../../services/types';
+
+interface TableUIType {
+  data: DataType[];
+}
 
 const TableUI = ({ data }: TableUIType) => {
   const isPrevPrice = data[0]?.artifacts[0].history;
@@ -52,7 +56,3 @@ const TableUI = ({ data }: TableUIType) => {
 };
 
 export default TableUI;
-
-interface TableUIType {
-  data: DataType[];
-}
