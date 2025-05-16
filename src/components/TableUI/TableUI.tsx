@@ -32,7 +32,7 @@ const TableUI = ({ data }: TableUIType) => {
           sx={{ minWidth: 650, tableLayout: 'fixed' }}
           aria-label='simple table'
         >
-          <TableHead>
+          <TableHead className='table-head'>
             <TableRow>
               <TableCell colSpan={isPrevPrice ? 3 : 2} align='center'>
                 {row.name}

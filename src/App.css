@@ -16,3 +16,11 @@
   margin: 0 auto;
   margin-top: 50px;
 }
+
+.table-head {
+  background: #f6f4f4;
+}
+
+.table-head th {
+  font-weight: 700;
+}
